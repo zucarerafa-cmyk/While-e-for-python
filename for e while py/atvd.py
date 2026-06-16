@@ -18,24 +18,24 @@ respostas = [
 ]
 jogarDnv = "Sim"
 
-while jogarDnv.lower == "sim":
+while jogarDnv.lower() == "sim":
     totalDePartidas = totalDePartidas + 1
     pontosDaPartida = 0
 
     for partida in range (5):
         print (perguntas[partida])
-        respostaUsuário = input ("Digite a sua resposta: ")        
+        respostaUsuário = input ("Digite a sua resposta: ").strip().lower()        
 
         if respostaUsuário == respostas[partida]:
             print ("Parabéns, você acertou (+1 ponto)")
             pontosDaPartida = pontosDaPartida + 1
-        else:
+        elif respostaUsuário != respostas[partida]:
             print ("Que pena, você errou.")
             print ("Resposta certa: ", respostas[partida])
 
-print ("Sua pontuação na partida foi: ", pontosDaPartida)
+    print ("Sua pontuação na partida foi: ", pontosDaPartida)
 
-totalDePontos = totalDePontos + pontosDaPartida
+    totalDePontos = totalDePontos + pontosDaPartida
 if pontosDaPartida > melhorPontuação:
    melhorPontuação = pontosDaPartida
 
@@ -47,4 +47,4 @@ print ("Fim de jogo")
 print ("Total de partidas jogadas: ", totalDePartidas)
 print ("Total de pontos gerais: ", totalDePontos)
 print ("Melhor pontuação obtida: ", melhorPontuação)
-print ("Média de pontos por partida: ", media)   
+print ("Média de pontos por partida: ", media)  
